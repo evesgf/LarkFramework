@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class ResBuilder {
     #region Config
     //打包路径
     public static readonly string BuildPath = "Assets/"+ResManager.ABPath;
+    //压缩模式
+    public static readonly BuildAssetBundleOptions BuildABOptions = BuildAssetBundleOptions.None;
     #endregion
 
     #region Menu
@@ -47,6 +50,8 @@ public class ResBuilder {
     /// <param name="target">目标平台</param>
     private static void BuildAssetResource(BuildTarget target)
     {
+        Debug.Log("=============== Build Start ===============");
+
         if (Directory.Exists(BuildPath))
         {
             Directory.Delete(BuildPath, true);
@@ -62,8 +67,14 @@ public class ResBuilder {
         BulidListHandler();
 
         //打包
-        BuildPipeline.BuildAssetBundles(BuildPath, buildList.ToArray(), BuildAssetBundleOptions.None, target);
+        BuildPipeline.BuildAssetBundles(BuildPath, buildList.ToArray(), BuildABOptions, target);
+
+        //创建文件列表
+        CreateFileList();
+
         AssetDatabase.Refresh();
+
+        Debug.Log("=============== Build End ===============");
     }
 
     /// <summary>
@@ -109,5 +120,38 @@ public class ResBuilder {
     {
         //string streamDir = DataPath;
         //if (!Directory.Exists(streamDir)) Directory.CreateDirectory(streamDir);
+    }
+
+    /// <summary>
+    /// 生成文件列表
+    /// </summary>
+    [MenuItem("XLuaFramework/Create File List", false, 103)]
+    static void CreateFileList()
+    {
+        Debug.Log("=============== Create File List Start ===============");
+        //生成文件
+        string filePath = Util.GetRelativePath() + BuildPath + "/" + ResManager.FileListName;
+        StreamWriter sw;
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+        sw = File.CreateText(filePath);
+
+        //获取文件列表
+        string[] files = Directory.GetFiles(Util.GetRelativePath() + BuildPath, "*.*", SearchOption.AllDirectories);
+        //以行为单位写入字符串
+        foreach (var f in files)
+        {
+            var path =f.Replace("\\", "/");
+            if (path.Equals(filePath)) continue;
+            Debug.Log(path);
+            sw.WriteLine(path.Substring((Util.GetRelativePath() + BuildPath+"/").Length) + "|" + Util.Md5file(path));
+        }
+        sw.Close();
+        sw.Dispose();
+
+        AssetDatabase.Refresh();
+        Debug.Log("=============== Create File List End ===============");
     }
 }

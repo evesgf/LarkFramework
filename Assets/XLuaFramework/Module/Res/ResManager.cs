@@ -2,17 +2,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ResManager:SingletonMono<ResManager> {
 
     #region Config
-    //AB包路径
+    //AB包出包路径
     public static readonly string ABPath = "AB";
     //manifestName，默认为AB包文件夹名
     public static readonly string ManifestName = ABPath;
     //AB包扩展名
     public static readonly string ABPattern = ".unity3d";
+    //文件列表,存储AB包MD5
+    public static readonly string FileListName = "FileList.txt";
+
+    //更新模式
+    public static readonly bool UpdaeMode = false;
+    //资源更新地址
+    public static readonly string UpdateAddress = "http://ab.evesgf.com/AB/";
     #endregion
 
     //总的Manifest，用于查询依赖
@@ -32,16 +41,28 @@ public class ResManager:SingletonMono<ResManager> {
         }
     }
 
+
     /// <summary>
     /// Manager初始化
     /// </summary>
     /// <param name="action">初始化完成后的调用</param>
-    public void Init(Action initOK=null)
+    public void Init(Action initOK = null)
     {
+        StartCoroutine(OnInit(initOK));
+    }
+
+    IEnumerator OnInit(Action initOK=null)
+    {
+        //检查本地资源文件
+        if (UpdaeMode)
+        {
+            yield return StartCoroutine(CheckResource());
+        }
+
         m_loadedAssetBundles = new Dictionary<string, AssetBundleInfo>();
 
         //加载assetBundleManifest文件    
-        AssetBundle manifestBundle = AssetBundle.LoadFromFile(Util.DataPath + "Assets/" +ABPath + "/" + ManifestName);
+        AssetBundle manifestBundle = AssetBundle.LoadFromFile(Util.DataPath + ManifestName);
         if (manifestBundle != null)
         {
             m_assetBundleManifest = manifestBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
@@ -61,6 +82,75 @@ public class ResManager:SingletonMono<ResManager> {
             Debug.LogError("[ResManager]Init Error! manifestBundle is nil!");
         }
     }
+    #region 资源更新相关
+    /// <summary>
+    /// 检查本地资源是否存在
+    /// </summary>
+    IEnumerator CheckResource()
+    {
+        Debug.Log("=============== CheckResource Start ===============");
+        if (!Directory.Exists(Util.DataPath))
+        {
+            Directory.CreateDirectory(Util.DataPath);
+        }
+
+        //下载资源列表
+        yield return StartCoroutine(DownloadFile(UpdateAddress + FileListName, Util.DataPath + FileListName));
+
+        //逐行读取资源列表
+        StreamReader sr = new StreamReader(Util.DataPath + FileListName);
+        string line;
+        while ((line = sr.ReadLine()) != null)
+        {
+            //校验资源
+            var info = line.Split('|');
+            var filePath = info[0];
+            var fileMd5 = info[1];
+
+            if (File.Exists(Util.DataPath + filePath))
+            {
+                if (Util.Md5file(Util.DataPath + filePath).Equals(fileMd5)) continue;
+            }
+
+            File.Delete(Util.DataPath + filePath);
+            //下载资源
+            yield return StartCoroutine(DownloadFile(UpdateAddress + filePath, Util.DataPath + filePath));
+        }
+        if (sr != null) sr.Close();
+        Debug.Log("=============== CheckResource End ===============");
+    }
+
+    /// <summary>
+    /// 文件下载
+    /// https://docs.unity3d.com/Manual/UnityWebRequest-CreatingDownloadHandlers.html
+    /// IIS服务器设置MIME类型：application/octet-stream .unity3d
+    /// 无后缀则设置扩展名为.（点）：application/octet-stream .
+    /// </summary>
+    /// <param name="url"></param>
+    /// <param name="savePath"></param>
+    /// <returns></returns>
+    IEnumerator DownloadFile(string url,string savePath)
+    {
+        var www = new UnityWebRequest(url);
+        www.downloadHandler = new DownloadHandlerBuffer();
+        yield return www.Send();
+
+        if (www.isError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            //retrieve results as binary data
+            byte[] results = www.downloadHandler.data;
+            //存储二进制文件
+            FileStream fs = new FileStream(savePath, FileMode.Create);
+            fs.Write(results, 0, results.Length);
+            fs.Close();
+            fs.Dispose();
+        }
+    }
+    #endregion
 
     #region 资源加载相关
     /// <summary>
@@ -112,7 +202,7 @@ public class ResManager:SingletonMono<ResManager> {
     /// <returns>返回加载的资源</returns>
     public AssetBundle LoadAssets(string abName)
     {
-        var path = Util.DataPath + "Assets/" + ABPath + "/" + abName;
+        var path = Util.DataPath + abName;
 
         AssetBundleInfo bundleInfo = null;
         //检查是否已经加载
@@ -126,7 +216,7 @@ public class ResManager:SingletonMono<ResManager> {
             string[] dependencies = m_assetBundleManifest.GetAllDependencies(abName);
             foreach (var d in dependencies)
             {
-                var dPath = Util.DataPath + "Assets/" + ABPath + "/" + d;
+                var dPath = Util.DataPath + d;
                 AssetBundleInfo dBundleInfo = null;
                 //检查是否已经加载
                 if (m_loadedAssetBundles.TryGetValue(dPath, out dBundleInfo))
@@ -174,7 +264,7 @@ public class ResManager:SingletonMono<ResManager> {
 
     IEnumerator OnLoadAssetsAsync(string abName,Action<AssetBundle> action=null)
     {
-        var path = Util.DataPath + "Assets/" + ABPath + "/" + abName;
+        var path = Util.DataPath + abName;
 
         AssetBundleInfo bundleInfo = null;
         if (m_loadedAssetBundles.TryGetValue(path, out bundleInfo))
@@ -187,7 +277,7 @@ public class ResManager:SingletonMono<ResManager> {
             string[] dependencies = m_assetBundleManifest.GetAllDependencies(abName);
             foreach (var d in dependencies)
             {
-                var dPath = Util.DataPath + "Assets/" + ABPath + "/" + d;
+                var dPath = Util.DataPath + d;
                 AssetBundleInfo dBundleInfo = null;
                 //检查是否已经加载
                 if (m_loadedAssetBundles.TryGetValue(dPath, out dBundleInfo))
@@ -234,7 +324,7 @@ public class ResManager:SingletonMono<ResManager> {
     /// <param name="isThorough">是否强制清除</param>
     public void UnLoadAssetBundle(string abName, bool isThorough = false)
     {
-        var path = Util.DataPath+"Assets/" + ABPath + "/" + abName;
+        var path = Util.DataPath + abName;
         AssetBundleInfo bundleInfo = null;
         if (m_loadedAssetBundles.TryGetValue(path, out bundleInfo))
         {
