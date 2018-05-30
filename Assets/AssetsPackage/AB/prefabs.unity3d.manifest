@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 739679305
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d9b70f2f897056ffdb55578091a1fc61
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c15c595f80747130a8d34dfc8ec48e63
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/_Project/Prefabs/Cube_01.prefab
+Dependencies:
+- E:/Project/LarkFramework/Assets/AssetsPackage/AB/materials.unity3d

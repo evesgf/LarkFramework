@@ -41,9 +41,9 @@ end
 function this.ShwoPanel(uiDef)
 
     nowPage=UIList[uiDef]
-    local abName,assetName,canvas=nowPage:GetAssetInfo()
+    local abName,assetName=nowPage:GetAssetInfo()
     local o = resManager:LoadPrefab(abName,assetName)
-    local obj1= CS.UnityEngine.GameObject.Instantiate(o,canvas)
+    local obj1= CS.UnityEngine.GameObject.Instantiate(o)
     xLuaBehaviour.Attach(obj1, uiDef)
 
     nowPage:show()

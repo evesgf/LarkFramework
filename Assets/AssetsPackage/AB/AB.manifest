@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1071323791
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: prefabs.unity3d
+      Dependencies:
+        Dependency_0: materials.unity3d
+    Info_1:
+      Name: materials.unity3d
+      Dependencies:
+        Dependency_0: textures.unity3d
+    Info_2:
+      Name: textures.unity3d
+      Dependencies: {}
+    Info_3:
+      Name: ui.unity3d
+      Dependencies: {}

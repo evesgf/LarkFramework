@@ -86,9 +86,10 @@ public class ResBuilder {
     /// </summary>
     static void BulidListHandler()
     {
-        AddBuildList("prefabs", "*.prefab", "Assets/_Project/Prefabs", true);
+        AddBuildList("prefabs", "*.prefab", "Assets/_Project/Prefabs", false);
         AddBuildList("materials", "*.mat", "Assets/_Project/materials", true);
         AddBuildList("textures", "*.png", "Assets/_Project/Textures", true);
+        AddBuildList("ui", "*.prefab", "Assets/_Project/Prefabs/UI", true);
     }
 
     /// <summary>

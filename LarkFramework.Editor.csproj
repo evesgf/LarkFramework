@@ -137,9 +137,35 @@
     <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\BundleDetailList.cs" />
     <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\MessageList.cs" />
     <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\MessageSystem.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\Hotfix.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\TemplateRef.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\Editor\CompressAndDecompress.cs" />
     <Compile Include="Assets\XLuaFramework\Module\Res\Editor\ResBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\AssetsPackage\FileList.txt" />
+    <None Include="Assets\XLua\CHANGELOG.txt" />
+    <None Include="Assets\XLua\Gen\link.xml" />
+    <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
+    <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
+    <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
+    <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
+    <None Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegister.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegisterGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaWrapPusher.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
+    <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
     <None Include="Assets\_Project\Animations\Animations.txt" />
     <None Include="Assets\_Project\Audios\Audios.txt" />
     <None Include="Assets\_Project\Effects\Effects.txt" />

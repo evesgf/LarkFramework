@@ -19,7 +19,7 @@ public class ResManager:SingletonMono<ResManager> {
     public static readonly string FileListName = "FileList.txt";
 
     //更新模式
-    public static readonly bool UpdaeMode = true;
+    public static readonly bool UpdaeMode = false;
     //资源更新地址
     public static readonly string UpdateAddress = "http://ab.evesgf.com/AssetsPackage/";
     #endregion
@@ -144,10 +144,12 @@ public class ResManager:SingletonMono<ResManager> {
         {
             //retrieve results as binary data
             byte[] results = www.downloadHandler.data;
-            //存储二进制文件
-            if (!Directory.Exists(savePath))
+
+            //创建目录
+            var saveDir = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(saveDir))
             {
-                Directory.CreateDirectory(savePath);
+                Directory.CreateDirectory(saveDir);
             }
 
             FileStream fs = new FileStream(savePath, FileMode.Create);

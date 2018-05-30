@@ -4,7 +4,7 @@ local child = parent:new('Home/HomePage')
 local gameObject
 
 function child:GetAssetInfo()
-    return 'ui','HomePage',EnumUICanvas.DefaultCanvas
+    return 'prefabs','Cube01'
 end
 
 function child:Awake(obj)

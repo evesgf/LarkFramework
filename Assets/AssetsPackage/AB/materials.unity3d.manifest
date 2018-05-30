@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 778901502
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 218248ee98f0717d17c79df84c8259c3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d1ae6e26fb0b4d11fccd18da598542fa
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/_Project/Materials/mat_01.mat
+Dependencies:
+- E:/Project/LarkFramework/Assets/AssetsPackage/AB/textures.unity3d
