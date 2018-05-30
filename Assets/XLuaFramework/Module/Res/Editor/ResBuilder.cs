@@ -10,7 +10,11 @@ public class ResBuilder {
 
     #region Config
     //打包路径
-    public static readonly string BuildPath = "Assets/"+ResManager.ABPath;
+    public static readonly string BuildPath = Util.GetRelativePath()+ "Assets/AssetsPackage/";
+    //AB包出包路径
+    public static readonly string BuildABPath = BuildPath + ResManager.ABPath;
+    //lua包出包路径
+    public static readonly string BuildLuaPath = BuildPath + XLuaManager.luaScriptPath;
     //压缩模式
     public static readonly BuildAssetBundleOptions BuildABOptions = BuildAssetBundleOptions.None;
     #endregion
@@ -52,22 +56,22 @@ public class ResBuilder {
     {
         Debug.Log("=============== Build Start ===============");
 
-        if (Directory.Exists(BuildPath))
+        if (Directory.Exists(BuildABPath))
         {
-            Directory.Delete(BuildPath, true);
+            Directory.Delete(BuildABPath, true);
         }
-        Directory.CreateDirectory(BuildPath);
+        Directory.CreateDirectory(BuildABPath);
 
         buildList.Clear();
-
-        //Lua打包列表
-        BuildLuaHandler();
 
         //添加打包列表
         BulidListHandler();
 
+        //Lua打包列表
+        BuildLuaHandler();
+
         //打包
-        BuildPipeline.BuildAssetBundles(BuildPath, buildList.ToArray(), BuildABOptions, target);
+        BuildPipeline.BuildAssetBundles(BuildABPath, buildList.ToArray(), BuildABOptions, target);
 
         //创建文件列表
         CreateFileList();
@@ -105,7 +109,6 @@ public class ResBuilder {
         for (int i = 0; i < files.Length; i++)
         {
             files[i] = files[i].Substring(Util.GetRelativePath().Length).Replace('\\', '/');
-            Debug.Log(files[i]);
         }
         AssetBundleBuild build = new AssetBundleBuild();
         build.assetBundleName = bundleName + ResManager.ABPattern;
@@ -118,8 +121,16 @@ public class ResBuilder {
     /// </summary>
     static void BuildLuaHandler()
     {
-        //string streamDir = DataPath;
-        //if (!Directory.Exists(streamDir)) Directory.CreateDirectory(streamDir);
+        if (Directory.Exists(BuildLuaPath))
+        {
+            Directory.Delete(BuildLuaPath, true);
+        }
+        Directory.CreateDirectory(BuildLuaPath);
+
+        //复制文件夹
+        Util.CopyDirectory(Util.LuaPath + XLuaManager.luaScriptPath, BuildLuaPath);
+
+        //todo:压缩文件
     }
 
     /// <summary>
@@ -130,7 +141,7 @@ public class ResBuilder {
     {
         Debug.Log("=============== Create File List Start ===============");
         //生成文件
-        string filePath = Util.GetRelativePath() + BuildPath + "/" + ResManager.FileListName;
+        string filePath =BuildPath + ResManager.FileListName;
         StreamWriter sw;
         if (File.Exists(filePath))
         {
@@ -139,14 +150,14 @@ public class ResBuilder {
         sw = File.CreateText(filePath);
 
         //获取文件列表
-        string[] files = Directory.GetFiles(Util.GetRelativePath() + BuildPath, "*.*", SearchOption.AllDirectories);
+        string[] files = Directory.GetFiles(BuildPath, "*.*", SearchOption.AllDirectories);
         //以行为单位写入字符串
         foreach (var f in files)
         {
             var path =f.Replace("\\", "/");
             if (path.Equals(filePath)) continue;
             Debug.Log(path);
-            sw.WriteLine(path.Substring((Util.GetRelativePath() + BuildPath+"/").Length) + "|" + Util.Md5file(path));
+            sw.WriteLine(path.Substring((BuildPath).Length) + "|" + Util.Md5file(path));
         }
         sw.Close();
         sw.Dispose();
