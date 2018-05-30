@@ -10,18 +10,18 @@ public class ResManager:SingletonMono<ResManager> {
 
     #region Config
     //AB包出包路径
-    public static readonly string ABPath = "AB";
+    public static readonly string ABPath = "AB/";
     //manifestName，默认为AB包文件夹名
-    public static readonly string ManifestName = ABPath;
+    public static readonly string ManifestName = "AB";
     //AB包扩展名
     public static readonly string ABPattern = ".unity3d";
     //文件列表,存储AB包MD5
     public static readonly string FileListName = "FileList.txt";
 
     //更新模式
-    public static readonly bool UpdaeMode = false;
+    public static readonly bool UpdaeMode = true;
     //资源更新地址
-    public static readonly string UpdateAddress = "http://ab.evesgf.com/AB/";
+    public static readonly string UpdateAddress = "http://ab.evesgf.com/AssetsPackage/";
     #endregion
 
     //总的Manifest，用于查询依赖
@@ -62,7 +62,7 @@ public class ResManager:SingletonMono<ResManager> {
         m_loadedAssetBundles = new Dictionary<string, AssetBundleInfo>();
 
         //加载assetBundleManifest文件    
-        AssetBundle manifestBundle = AssetBundle.LoadFromFile(Util.DataPath + ManifestName);
+        AssetBundle manifestBundle = AssetBundle.LoadFromFile(Util.DataPath + ABPath + ManifestName);
         if (manifestBundle != null)
         {
             m_assetBundleManifest = manifestBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
@@ -74,6 +74,7 @@ public class ResManager:SingletonMono<ResManager> {
             if (initOK != null)
             {
                 //初始化完成回调
+                Debug.Log("=================== [ResManager]Init Finished ===================");
                 initOK.Invoke();
             }
         }
@@ -98,7 +99,7 @@ public class ResManager:SingletonMono<ResManager> {
         yield return StartCoroutine(DownloadFile(UpdateAddress + FileListName, Util.DataPath + FileListName));
 
         //逐行读取资源列表
-        StreamReader sr = new StreamReader(Util.DataPath + FileListName);
+        StreamReader sr = new StreamReader(Util.DataPath+ FileListName);
         string line;
         while ((line = sr.ReadLine()) != null)
         {
@@ -110,11 +111,11 @@ public class ResManager:SingletonMono<ResManager> {
             if (File.Exists(Util.DataPath + filePath))
             {
                 if (Util.Md5file(Util.DataPath + filePath).Equals(fileMd5)) continue;
+                File.Delete(Util.DataPath + filePath);
             }
 
-            File.Delete(Util.DataPath + filePath);
             //下载资源
-            yield return StartCoroutine(DownloadFile(UpdateAddress + filePath, Util.DataPath + filePath));
+            yield return StartCoroutine(DownloadFile(UpdateAddress + filePath, Util.DataPath  + filePath));
         }
         if (sr != null) sr.Close();
         Debug.Log("=============== CheckResource End ===============");
@@ -144,6 +145,11 @@ public class ResManager:SingletonMono<ResManager> {
             //retrieve results as binary data
             byte[] results = www.downloadHandler.data;
             //存储二进制文件
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
             FileStream fs = new FileStream(savePath, FileMode.Create);
             fs.Write(results, 0, results.Length);
             fs.Close();
@@ -160,10 +166,10 @@ public class ResManager:SingletonMono<ResManager> {
     /// <param name="abName">ab包名</param>
     /// <param name="assetName">加载的资源名</param>
     /// <returns></returns>
-    public T LoadPrefab<T>(string abName, string assetName)where T:UnityEngine.Object
+    public GameObject LoadPrefab(string abName, string assetName)
     {
         var ab = LoadAssets(abName+ABPattern);
-        var prefab = ab.LoadAsset<T>(assetName);
+        var prefab = ab.LoadAsset<GameObject>(assetName);
         if (prefab == null)
         {
             Debug.LogError("[ResManager]Failed to load asset:"+ abName+":"+ assetName);
@@ -202,7 +208,7 @@ public class ResManager:SingletonMono<ResManager> {
     /// <returns>返回加载的资源</returns>
     public AssetBundle LoadAssets(string abName)
     {
-        var path = Util.DataPath + abName;
+        var path = Util.DataPath + ABPath + abName;
 
         AssetBundleInfo bundleInfo = null;
         //检查是否已经加载
@@ -216,7 +222,7 @@ public class ResManager:SingletonMono<ResManager> {
             string[] dependencies = m_assetBundleManifest.GetAllDependencies(abName);
             foreach (var d in dependencies)
             {
-                var dPath = Util.DataPath + d;
+                var dPath = Util.DataPath + ABPath + d;
                 AssetBundleInfo dBundleInfo = null;
                 //检查是否已经加载
                 if (m_loadedAssetBundles.TryGetValue(dPath, out dBundleInfo))
@@ -264,7 +270,7 @@ public class ResManager:SingletonMono<ResManager> {
 
     IEnumerator OnLoadAssetsAsync(string abName,Action<AssetBundle> action=null)
     {
-        var path = Util.DataPath + abName;
+        var path = Util.DataPath + ABPath + abName;
 
         AssetBundleInfo bundleInfo = null;
         if (m_loadedAssetBundles.TryGetValue(path, out bundleInfo))
@@ -277,7 +283,7 @@ public class ResManager:SingletonMono<ResManager> {
             string[] dependencies = m_assetBundleManifest.GetAllDependencies(abName);
             foreach (var d in dependencies)
             {
-                var dPath = Util.DataPath + d;
+                var dPath = Util.DataPath + ABPath + d;
                 AssetBundleInfo dBundleInfo = null;
                 //检查是否已经加载
                 if (m_loadedAssetBundles.TryGetValue(dPath, out dBundleInfo))
@@ -324,7 +330,7 @@ public class ResManager:SingletonMono<ResManager> {
     /// <param name="isThorough">是否强制清除</param>
     public void UnLoadAssetBundle(string abName, bool isThorough = false)
     {
-        var path = Util.DataPath + abName;
+        var path = Util.DataPath + ABPath + abName;
         AssetBundleInfo bundleInfo = null;
         if (m_loadedAssetBundles.TryGetValue(path, out bundleInfo))
         {

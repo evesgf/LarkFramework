@@ -7,7 +7,9 @@ public class GameEntry : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ResManager.Create().Init();
+        ResManager.Create().Init(delegate {
+            XLuaManager.Create().Init();
+        });
     }
 
     Dictionary<GameObject, string> list = new Dictionary<GameObject, string>();
@@ -17,32 +19,13 @@ public class GameEntry : MonoBehaviour {
         {
             CreateCube1();
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CreateCube2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            UnAsset1();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            UnAsset2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            ResManager.Instance.UnloadUnusedAssets();
-        }
     }
 
     public void CreateCube1()
     {
-        var prefab1 = ResManager.Instance.LoadPrefab<GameObject>("prefabs", "Cube01");
+        var prefab1 = ResManager.Instance.LoadPrefab("prefabs", "Cube01");
         var obj1 = GameObject.Instantiate(prefab1);
+        XLuaBehaviour.Attach(obj1, "CubeBehaviour");
         list.Add(obj1, "prefabs");
     }
 
