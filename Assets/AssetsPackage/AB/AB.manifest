@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1071323791
+CRC: 4219683334
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -15,4 +15,5 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: ui.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: textures.unity3d

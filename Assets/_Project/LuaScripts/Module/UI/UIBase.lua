@@ -12,12 +12,16 @@ function _M:new(abName,assetName,canvas,gameObject,transform)
         { __index = _M })
 end
 
-function _M:show()
-    print('UIBase abName:'..self.abName..' abName:'..self.assetName.." canvas:"..self.canvas)
+function _M:Open(arg)
+    --print('OpenUI:'..self.gameObject.name)
+    self.gameObject:SetActive(true)
+    CS.UIUtil.ShowGUIAnim(self.gameObject)
 end
 
-function _M:hello(arg)
-        print('UIBase abName:'..self.abName .. ": hello in parent:" .. tostring(arg))
+function _M:Close(arg)
+    --print('Close:'..self.gameObject.name)
+    --CS.UIUtil.HideGUIAnim(self.gameObject)
+    self.gameObject:SetActive(false)
 end
 
 return  _M

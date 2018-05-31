@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
-    <UnityVersion>5.6.5f1</UnityVersion>
+    <UnityVersion>5.6.6f2</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_5;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_6;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_5;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_6;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -50,34 +50,86 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets/CommonPack/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimator">
+      <HintPath>Assets/CommonPack/GUI Animator/GUI Animator for Unity UI/Plugins/GUIAnimator.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity565f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CommonPack\Fingers\Demo\AsteroidScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScript3DOrbit.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptDPad.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptImage.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptJoystick.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptOneFinger.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptPan.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptPlatformSpecificView.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptSwipe.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptZoomPanCamera.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptZoomableScrollView.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersDPadScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersDragDropScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersImageAutomationScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersJoystickScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersOrbitScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersPanRotateScaleScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersRotateOrbitScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\DeviceInfo.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\GestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\ImageGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\LongPressGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\OneTouchRotateGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\OneTouchScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\PanGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\RotateGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\ScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\SwipeGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\TapGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo00.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo01.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo02.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo03.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo04.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo05.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo06.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo07.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo08.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\DemoPlaySound.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\OpenOtherScene.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo Basic (CSharp)\Scripts\GA_UUI_DemoBasicControlledByScripts.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo Basic (CSharp)\Scripts\GA_UUI_DemoBasicControlledByScriptsShowRotateLoop.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\GAui.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\GSui.cs" />
     <Compile Include="Assets\XLua\Gen\CSCallLuaItfDBridge.cs" />
     <Compile Include="Assets\XLua\Gen\DelegatesGensBridge.cs" />
     <Compile Include="Assets\XLua\Gen\EnumWrap.cs" />
@@ -142,12 +194,22 @@
     <Compile Include="Assets\XLuaFramework\Common\Utility\Util.cs" />
     <Compile Include="Assets\XLuaFramework\Module\AppConfig.cs" />
     <Compile Include="Assets\XLuaFramework\Module\Res\ResManager.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\UI\UIUtil.cs" />
     <Compile Include="Assets\XLuaFramework\Module\XLua\XLuaBehaviour.cs" />
     <Compile Include="Assets\XLuaFramework\Module\XLua\XLuaManager.cs" />
     <Compile Include="Assets\_Project\Scripts\GameEntry.cs" />
+    <Compile Include="Assets\_Project\Scripts\ResCheckPage.cs" />
+    <Compile Include="Assets\_Project\Scripts\XLuaDef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetsPackage\FileList.txt" />
+    <None Include="Assets\CommonPack\Fingers\ChangeLog.txt" />
+    <None Include="Assets\CommonPack\Fingers\Prefab\Script\XamarinAndroidTouchAdapter.txt" />
+    <None Include="Assets\CommonPack\Fingers\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\!How to.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Editor\Note.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Note.txt" />
     <None Include="Assets\XLua\CHANGELOG.txt" />
     <None Include="Assets\XLua\Gen\link.xml" />
     <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />

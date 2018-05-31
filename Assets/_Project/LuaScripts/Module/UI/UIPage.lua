@@ -14,10 +14,10 @@ end
 
 
 -- 覆盖父类的方法。
-function _M:hello()
-        -- 只能使用这种方法调用基类的方法。
-        self.super.hello(self, "call from child")
-        print(tostring(self.abName) .. ": hello in child")
-end
+-- function _M:Open(arg)
+--         -- 只能使用这种方法调用基类的方法。
+--         self.super.hello(self, "UIPage:")
+--         print(tostring(self.abName) .. ": UIPage Hello:"..tostring(arg))
+-- end
 
 return _M

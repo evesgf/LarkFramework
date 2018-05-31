@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 778901502
+CRC: 2202740398
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 218248ee98f0717d17c79df84c8259c3
+    Hash: b74a2d6a8abbcbe0af72c8a76b6e52ca
   TypeTreeHash:
     serializedVersion: 2
     Hash: d1ae6e26fb0b4d11fccd18da598542fa
@@ -16,6 +16,7 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 Assets:
+- Assets/_Project/Materials/mat_Cube.mat
 - Assets/_Project/Materials/mat_01.mat
 Dependencies:
 - E:/Project/LarkFramework/Assets/AssetsPackage/AB/textures.unity3d

@@ -2,9 +2,8 @@
 
 local _M = {}
 
-
-function _M:new()
-        local obj = parent:new()
+function _M:new(abName,assetName,canvas,gameObject,transform)
+        local obj = parent:new(abName,assetName,canvas,gameObject,transform)
         local super_mt = getmetatable(obj)
         -- 当方法在子类中查询不到时，再去父类中去查找。
         setmetatable(_M, super_mt)
@@ -13,15 +12,12 @@ function _M:new()
     return setmetatable(obj, { __index = _M })
 end
 
-function XXXX()
-        return '22222'
-    end
 
 -- 覆盖父类的方法。
--- function _M:hello()
+-- function _M:Open(arg)
 --         -- 只能使用这种方法调用基类的方法。
---         self.super.hello(self, "super")
---         print(tostring(self.assetPath) .. ": child")
+--         self.super.hello(self, "UIPage:")
+--         print(tostring(self.abName) .. ": UIPage Hello:"..tostring(arg))
 -- end
 
 return _M

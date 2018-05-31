@@ -1,19 +1,27 @@
 ﻿local _M = {}
 
-function _M:new(path)
-    return setmetatable({ assetPath = path}, { __index = _M })
+function _M:new(abName,assetName,canvas,gameObject,transform)
+    return setmetatable(
+        { 
+            abName = abName or '1',
+            assetName=assetName or '2',
+            canvas=canvas or '3',
+            gameObject=gameObject or nil,
+            transform=transform or nil
+        }, 
+        { __index = _M })
 end
 
-function _M:show()
-    print(self.assetPath)
+function _M:Open(arg)
+    --print('OpenUI:'..self.gameObject.name)
+    self.gameObject:SetActive(true)
+    CS.UIUtil.ShowGUIAnim(self.gameObject)
 end
 
--- function _M:hello(arg)
---     print('------------->'..self.assetPath .. ": hello in parent:" .. tostring(arg))
--- end
-
-function XXXX()
-    return '111111'
+function _M:Close(arg)
+    --print('Close:'..self.gameObject.name)
+    --CS.UIUtil.HideGUIAnim(self.gameObject)
+    self.gameObject:SetActive(false)
 end
 
 return  _M

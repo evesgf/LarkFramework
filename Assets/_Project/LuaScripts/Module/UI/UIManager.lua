@@ -36,7 +36,8 @@ function this.Init()
         if type(page) == 'boolean' then     
             error('[UIManager], 找不到lua page文件:'..tostring(UIList[key])..',path: '..value)
         end
-        UIList[value]=page
+        
+        UIList[value]=page:new()
     end
 
     print('[UIManager]'..'Init OK:'..gameObject.name)
@@ -45,24 +46,39 @@ end
 --打开窗口
 function this.ShwoPanel(uiDef)
 
+    if nowPage~=nil then
+        --压入栈
+        table.insert( pageStack, nowPage)
+        this.HideNowPanel()
+    end
+
     nowPage=UIList[uiDef]
-    local abName,assetName,canvas=nowPage:GetAssetInfo()
-    local o = resManager:LoadPrefab(abName,assetName)
-    local obj1= CS.UnityEngine.GameObject.Instantiate(o,canvas)
-    xLuaBehaviour.Attach(obj1, uiDef)
 
-    --压入栈
-    table.insert( pageStack, nowPage)
+    if nowPage.gameObject==nil then
+        --实例化UI对象
+        local o = resManager:LoadPrefab(nowPage.abName,nowPage.assetName)
+        local obj1= CS.UnityEngine.GameObject.Instantiate(o,nowPage.canvas)
+        xLuaBehaviour.Attach(obj1, uiDef)
+        nowPage.gameObject=obj1
+    end
 
-    nowPage:show()
-end
-
---关闭窗口
-function this.HidePanel(panelName)
+    --执行打开操作
+    nowPage:Open()
 
 end
 
---打开OpenLoadResCheckUI
-function this.OpenLoadResCheckUI()
-    print('---------OpenLoadResCheckUI---------')
+--关闭UI
+function this.HidePanel(uiDef)
+    UIList[uiDef]:Close()
+end
+
+--关闭当前UI
+function this.HideNowPanel()
+    nowPage:Close()
+end
+
+--返回上一个UI
+function this.BackLastPage()
+    nowPage:Close()
+    table.remove(pageStack):Open()
 end

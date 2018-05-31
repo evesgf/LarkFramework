@@ -1,16 +1,24 @@
 ManifestFileVersion: 0
-CRC: 859575433
+CRC: 3932021657
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 10aa30eddeb1d018bdaba887bd30dd5d
+    Hash: b40a6df3e2adee18269dbbd195bd19be
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c1642440719609290a7e09a50a7286f4
+    Hash: 36c33a819640bead83b84b1645a12e6d
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 Assets:
+- "Assets/_Project/Textures/\u4E2A\u522B\u5316APP\u6807\u9898.png"
+- Assets/_Project/Textures/icon.png
+- Assets/_Project/Textures/XileLogo.png
 - Assets/_Project/Textures/t1.png
+- Assets/_Project/Textures/cardItemBG.png
+- Assets/_Project/Textures/ItemBG.png
+- Assets/_Project/Textures/CardListBG.png
 Dependencies: []

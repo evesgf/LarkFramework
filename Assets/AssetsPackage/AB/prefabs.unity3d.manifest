@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 739679305
+CRC: 3333670361
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d9b70f2f897056ffdb55578091a1fc61
+    Hash: 00d55bb579cf5412eabd3d9261409bf4
   TypeTreeHash:
     serializedVersion: 2
     Hash: c15c595f80747130a8d34dfc8ec48e63
@@ -24,6 +24,7 @@ ClassTypes:
 - Class: 65
   Script: {instanceID: 0}
 Assets:
+- Assets/_Project/Prefabs/Cube01.prefab
 - Assets/_Project/Prefabs/Cube_01.prefab
 Dependencies:
 - E:/Project/LarkFramework/Assets/AssetsPackage/AB/materials.unity3d
