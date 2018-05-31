@@ -47,7 +47,7 @@ public class XLuaBehaviour : MonoBehaviour {
 
         scriptEnv.Set("self", this);
 
-        XLuaManager.Instance.luaEnv.DoString(File.ReadAllText(luaScriptPath, Encoding.UTF8), "[XLuaBehaviour]", scriptEnv);
+        XLuaManager.Instance.luaEnv.DoString(File.ReadAllText(luaScriptPath, Encoding.UTF8), "XLuaBehaviour", scriptEnv);
 
         Action<GameObject> luaAwake = scriptEnv.Get<Action<GameObject>>("Awake");
         scriptEnv.Get("Start", out luaStart);
@@ -62,6 +62,7 @@ public class XLuaBehaviour : MonoBehaviour {
         {
             luaAwake(gameObject);
         }
+        luaAwake = null;
     }
 
     #region 生命周期
@@ -120,23 +121,16 @@ public class XLuaBehaviour : MonoBehaviour {
             luaDestroy();
         }
         luaDestroy = null;
+        luaOnDisable = null;
+        luaLateUpdate = null;
+        luaFixedUpdate = null;
         luaUpdate = null;
+        luaOnEnable = null;
         luaStart = null;
         scriptEnv.Dispose();
+
+        //解决释放BUG
+        var luaEnv=XLuaManager.Instance.luaEnv;
     }
     #endregion
 }
-
-#if UNITY_EDITOR
-public static class XLuaBehaviourExporter
-{
-    [CSharpCallLua]
-    public static List<Type> CSharpCallLua = new List<Type>()
-    {
-        typeof(Action),
-        typeof(Action<float>),
-        typeof(Action<float, float>),
-        typeof(Action<GameObject>),
-    };
-}
-#endif

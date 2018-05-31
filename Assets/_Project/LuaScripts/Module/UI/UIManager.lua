@@ -14,8 +14,13 @@ local this=UIManager
 local gameObject
 local transform
 
+--UI脚本列表
 local UIList={}
 
+--UI打开的栈
+local pageStack={}
+
+--当前打开的UI
 local nowPage
 
 function this.Init()
@@ -45,6 +50,9 @@ function this.ShwoPanel(uiDef)
     local o = resManager:LoadPrefab(abName,assetName)
     local obj1= CS.UnityEngine.GameObject.Instantiate(o,canvas)
     xLuaBehaviour.Attach(obj1, uiDef)
+
+    --压入栈
+    table.insert( pageStack, nowPage)
 
     nowPage:show()
 end

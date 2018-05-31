@@ -20,14 +20,26 @@ public class ResManager:SingletonMono<ResManager> {
 
     //更新模式
     public static readonly bool UpdaeMode = false;
-    //资源更新地址
-    public static readonly string UpdateAddress = "http://ab.evesgf.com/AssetsPackage/";
+
+#if UNITY_STANDALONE
+    //PC平台资源更新地址
+    public static readonly string UpdateAddress = "http://ab.evesgf.com/PC/";
+#elif UNITY_IPHONE
+    //IOS平台资源更新地址
+    public static readonly string UpdateAddress = "http://ab.evesgf.com/IOS/";
+#elif UNITY_ANDROID
+    //Android平台资源更新地址
+    public static readonly string UpdateAddress = "http://ab.evesgf.com/Android/";
+#endif
     #endregion
 
     //总的Manifest，用于查询依赖
     private AssetBundleManifest m_assetBundleManifest;
     //依赖统计
     private Dictionary<string, AssetBundleInfo> m_loadedAssetBundles = new Dictionary<string, AssetBundleInfo>();
+
+    private ResCheckPage resCheckPage;
+
     //资源引用相关类
     public class AssetBundleInfo
     {
@@ -53,6 +65,14 @@ public class ResManager:SingletonMono<ResManager> {
 
     IEnumerator OnInit(Action initOK=null)
     {
+        //从resources中读UI
+        var obj = Resources.Load<GameObject>("ResCheckPage");
+        resCheckPage = Instantiate(obj, GameObject.Find("DefaultCanvas").transform).GetComponent<ResCheckPage>();
+        resCheckPage.SetSliderValue(0);
+        resCheckPage.SetSliderInfo("正在检查更新");
+
+        yield return StartCoroutine(resCheckPage.Open());
+
         //检查本地资源文件
         if (UpdaeMode)
         {
@@ -71,19 +91,24 @@ public class ResManager:SingletonMono<ResManager> {
             manifestBundle.Unload(false);
             manifestBundle = null;
 
-            if (initOK != null)
-            {
-                //初始化完成回调
-                Debug.Log("=================== [ResManager]Init Finished ===================");
-                initOK.Invoke();
-            }
+            resCheckPage.SetSliderInfo("游戏初始化完成");
+            Debug.Log("=================== Init Finished ===================");
+            StartCoroutine(resCheckPage.Hide(delegate {
+                Destroy(resCheckPage.gameObject);
+
+                if (initOK != null)
+                {
+                    //初始化完成回调
+                    initOK.Invoke();
+                }
+            }));
         }
         else
         {
             Debug.LogError("[ResManager]Init Error! manifestBundle is nil!");
         }
     }
-    #region 资源更新相关
+#region 资源更新相关
     /// <summary>
     /// 检查本地资源是否存在
     /// </summary>
@@ -92,13 +117,18 @@ public class ResManager:SingletonMono<ResManager> {
         Debug.Log("=============== CheckResource Start ===============");
         if (!Directory.Exists(Util.DataPath))
         {
+            //程序首次安装
             Directory.CreateDirectory(Util.DataPath);
         }
+
+        resCheckPage.SetSliderValue(0);
+        resCheckPage.SetSliderInfo("正在下载资源列表");
 
         //下载资源列表
         yield return StartCoroutine(DownloadFile(UpdateAddress + FileListName, Util.DataPath + FileListName));
 
         //逐行读取资源列表
+        Dictionary<string, string> files = new Dictionary<string, string>();
         StreamReader sr = new StreamReader(Util.DataPath+ FileListName);
         string line;
         while ((line = sr.ReadLine()) != null)
@@ -108,16 +138,29 @@ public class ResManager:SingletonMono<ResManager> {
             var filePath = info[0];
             var fileMd5 = info[1];
 
-            if (File.Exists(Util.DataPath + filePath))
+            files.Add(filePath, fileMd5);
+        }
+        if (sr != null) sr.Close();
+
+        int i = 0;
+        foreach (KeyValuePair<string, string> pair in files)
+        {
+            i++;
+
+            resCheckPage.SetSliderValue(i/ files.Count);
+            resCheckPage.SetSliderInfo("正在检查第" + i + "个文件");
+
+            if (File.Exists(Util.DataPath + pair.Key))
             {
-                if (Util.Md5file(Util.DataPath + filePath).Equals(fileMd5)) continue;
-                File.Delete(Util.DataPath + filePath);
+                if (Util.Md5file(Util.DataPath + pair.Key).Equals(pair.Value)) continue;
+                File.Delete(Util.DataPath + pair.Key);
             }
 
             //下载资源
-            yield return StartCoroutine(DownloadFile(UpdateAddress + filePath, Util.DataPath  + filePath));
+            yield return StartCoroutine(DownloadFile(UpdateAddress + pair.Key, Util.DataPath + pair.Key));
         }
-        if (sr != null) sr.Close();
+
+        resCheckPage.SetSliderInfo("资源检查完成");
         Debug.Log("=============== CheckResource End ===============");
     }
 
@@ -158,9 +201,9 @@ public class ResManager:SingletonMono<ResManager> {
             fs.Dispose();
         }
     }
-    #endregion
+#endregion
 
-    #region 资源加载相关
+#region 资源加载相关
     /// <summary>
     /// 同步加载资源
     /// </summary>
@@ -366,5 +409,5 @@ public class ResManager:SingletonMono<ResManager> {
     {
         Resources.UnloadUnusedAssets();
     }
-    #endregion
+#endregion
 }
