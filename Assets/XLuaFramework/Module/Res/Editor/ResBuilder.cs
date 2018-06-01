@@ -47,6 +47,8 @@ public class ResBuilder {
 
     //资源列表
     private static List<AssetBundleBuild> buildList = new List<AssetBundleBuild>();
+    //场景列表
+    private static List<string> sceneList = new List<string>();
 
     /// <summary>
     /// 生成ab
@@ -63,6 +65,7 @@ public class ResBuilder {
         Directory.CreateDirectory(BuildABPath);
 
         buildList.Clear();
+        sceneList.Clear();
 
         //添加打包列表
         BulidListHandler();
@@ -70,8 +73,22 @@ public class ResBuilder {
         //Lua打包列表
         BuildLuaHandler();
 
-        //打包
+
+        //场景打包列表
+        BuildSceneHandler();
+
+        //资源打包
         BuildPipeline.BuildAssetBundles(BuildABPath, buildList.ToArray(), BuildABOptions, target);
+
+        Debug.Log("====>");
+        //场景打包
+       BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+        buildPlayerOptions.scenes = sceneList.ToArray();
+        buildPlayerOptions.locationPathName = Util.GetRelativePath() + "../scene"+ResManager.ABPattern;
+        buildPlayerOptions.target = target;
+        buildPlayerOptions.options = BuildOptions.None;
+        BuildPipeline.BuildPlayer(buildPlayerOptions);
+        Debug.Log("====>" + BuildABPath + "scene" + ResManager.ABPattern);
 
         //创建文件列表
         CreateFileList();
@@ -86,10 +103,23 @@ public class ResBuilder {
     /// </summary>
     static void BulidListHandler()
     {
+        //测试
         AddBuildList("prefabs", "*.prefab", "Assets/_Project/Prefabs", false);
         AddBuildList("materials", "*.mat", "Assets/_Project/materials", true);
         AddBuildList("textures", "*.png", "Assets/_Project/Textures", true);
         AddBuildList("ui", "*.prefab", "Assets/_Project/Prefabs/UI", true);
+
+        //习乐资源打包
+        AddBuildList("characters/animals/tiger_boy", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Tiger_Boy", false);
+        AddBuildList("characters/animals/bunny_girl", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Bunny_Girl", false);
+    }
+
+    /// <summary>
+    /// 添加场景到打包列表
+    /// </summary>
+    static void BuildSceneHandler()
+    {
+        sceneList.Add("Assets/_Project/Scenes/Home.unity");
     }
 
     /// <summary>

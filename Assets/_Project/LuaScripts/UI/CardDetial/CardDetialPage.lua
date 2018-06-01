@@ -3,7 +3,7 @@
 local _M = {}
 
 function _M:new()
-        local obj = parent:new('ui','CardListPage',EnumUICanvas.DefaultCanvas,nil,nil)
+        local obj = parent:new('ui','CardDetialPage',EnumUICanvas.DefaultCanvas,nil,nil)
         local super_mt = getmetatable(obj)
         -- 当方法在子类中查询不到时，再去父类中去查找。
         setmetatable(_M, super_mt)
@@ -14,7 +14,7 @@ function _M:new()
 end
 
 -- 各个组件路径
-local path_btn_Back="btn_Box/btn_Home/Button"
+local path_btn_Back="btn_back/Button"
 local btn_Back
 
 function Awake(obj)
@@ -25,23 +25,19 @@ function Awake(obj)
     btn_Back=transform:Find(path_btn_Back):GetComponent("Button")
     btn_Back.onClick:AddListener(_M.OnBack)
 
-    local btn_Item1=transform:Find('CardBox/Content/CardItem1'):GetComponent("Button")
-    --AddListener只支持匿名委托
-    btn_Item1.onClick:AddListener(function()
-        _M:OnItemClick(UIDef.CardDetialPage)
-    end)
-    local btn_Item2=transform:Find('CardBox/Content/CardItem2'):GetComponent("Button")
-    btn_Item2.onClick:AddListener(function()
-        _M:OnItemClick(UIDef.CardDetialPage)
-    end)
-    local btn_Item3=transform:Find('CardBox/Content/CardItem3'):GetComponent("Button")
-    btn_Item3.onClick:AddListener(function()
-        _M:OnItemClick(UIDef.CardDetialPage)
-    end)
+    --此处应为遍历对象绑定
+    -- local btn_Game1=transform:Find('CardDetialBoard/GameBox/Game1'):GetComponent("Button")
+    -- local btn_Game1.onClick:AddListener(_M.OnOpenGame)
+    -- local btn_Game2=transform:Find('CardDetialBoard/GameBox/Game2'):GetComponent("Button")
+    -- local btn_Game2.onClick:AddListener(_M.OnOpenGame)
+    -- local btn_Game3=transform:Find('CardDetialBoard/GameBox/Game3'):GetComponent("Button")
+    -- local btn_Game3.onClick:AddListener(_M.OnOpenGame)
+    -- local btn_Game4=transform:Find('CardDetialBoard/GameBox/Game4'):GetComponent("Button")
+    -- local btn_Game4.onClick:AddListener(_M.OnOpenGame)
 end
 
-function _M:OnItemClick(uidef)
-    UIManager.ShwoPanel(uidef); 
+function _M:OnOpenGame()
+    print()
 end
 
 function OnDestroy()
@@ -49,7 +45,7 @@ function OnDestroy()
 end
 
 function _M:OnBack()
-        UIManager.ShwoPanel(UIDef.HomePage); 
+        UIManager.ShwoPanel(UIDef.CardListPage); 
 end
 
 -- 覆盖父类的方法。

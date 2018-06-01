@@ -16,6 +16,7 @@ public static class XLuaDef
         typeof(Action<float, float>),
         typeof(Action<GameObject>),
         typeof(UIUtil),
+        typeof(Slate.Cutscene),
     };
 }
 #endif

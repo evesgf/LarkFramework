@@ -1,10 +1,6 @@
 ﻿--Canvas层级，需和场景中的一致
 EnumUICanvas={DefaultCanvas,TopCanvas}
 
-luaHaper=CS.LuaHapler
-resManager=luaHaper.GetResManager()
-xLuaBehaviour=CS.XLuaBehaviour
-
 --require("Module/UIBase")
 --require("Module/UIPage")
 require("UI/UIDef")
@@ -26,6 +22,8 @@ local nowPage
 function this.Init()
     gameObject= CS.UnityEngine.GameObject.Find("UIManager")
     transform=gameObject.transform
+    CS.UnityEngine.Object.DontDestroyOnLoad(gameObject)
+
     --Canva层级
     EnumUICanvas.DefaultCanvas=CS.UnityEngine.GameObject.Find("DefaultCanvas").transform
     EnumUICanvas.TopCanvas=CS.UnityEngine.GameObject.Find("TopCanvas").transform
