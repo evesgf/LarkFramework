@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameEntry : MonoBehaviour {
@@ -18,6 +19,14 @@ public class GameEntry : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             CreateCube1();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            //加载场景
+            ResManager.Instance.LoadAssets("scene.unity3d");
+            SceneManager.LoadScene("Main");
+            ResManager.Instance.UnLoadAssetBundle("scene" + ResManager.ABPattern);
         }
     }
 

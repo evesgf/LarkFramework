@@ -84,7 +84,7 @@ public class ResBuilder {
         //场景打包
        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = sceneList.ToArray();
-        buildPlayerOptions.locationPathName = Util.GetRelativePath() + "../scene"+ResManager.ABPattern;
+        buildPlayerOptions.locationPathName = Util.GetRelativePath() +ResManager.ABPattern;
         buildPlayerOptions.target = target;
         buildPlayerOptions.options = BuildOptions.None;
         BuildPipeline.BuildPlayer(buildPlayerOptions);
@@ -108,10 +108,11 @@ public class ResBuilder {
         AddBuildList("materials", "*.mat", "Assets/_Project/materials", true);
         AddBuildList("textures", "*.png", "Assets/_Project/Textures", true);
         AddBuildList("ui", "*.prefab", "Assets/_Project/Prefabs/UI", true);
+        AddBuildList("scene", "*.unity", "Assets/_Project/Scenes", true);
 
         //习乐资源打包
-        AddBuildList("characters/animals/tiger_boy", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Tiger_Boy", false);
-        AddBuildList("characters/animals/bunny_girl", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Bunny_Girl", false);
+        //AddBuildList("characters/animals/tiger_boy", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Tiger_Boy", false);
+        //AddBuildList("characters/animals/bunny_girl", "*.prefab", "Assets/_Project/Packages/Xile91/Characters/Animals/Bunny_Girl", false);
     }
 
     /// <summary>
@@ -119,7 +120,7 @@ public class ResBuilder {
     /// </summary>
     static void BuildSceneHandler()
     {
-        sceneList.Add("Assets/_Project/Scenes/Home.unity");
+        //sceneList.Add("Assets/_Project/Scenes/Home.unity");
     }
 
     /// <summary>
