@@ -4,64 +4,73 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameEntry : MonoBehaviour
-{
-    Dictionary<GameObject, string> list = new Dictionary<GameObject, string>();
+public class GameEntry : MonoBehaviour {
 
-    private void Awake()
-    {
-        ResManager.Create().Init();
+	// Use this for initialization
+	void Start () {
+        ResManager.Create().Init(delegate {
+            XLuaManager.Create().Init();
+        });
     }
 
-    private void Update()
+    Dictionary<GameObject, string> list = new Dictionary<GameObject, string>();
+    void Update()
     {
-        //同步加载资源
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            var abName = "Prefabs/prefab.unity3d";
-            var assetName = "Assets/_Project/Prefabs/Cube01.prefab";
-            var reObj = ResManager.Instance.LoadObject<GameObject>(abName, assetName);
-            var gameObject=Instantiate(reObj);
-            list.Add(gameObject, abName);
+            CreateCube1();
         }
 
-        //异步加载资源
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            var abName = "Prefabs/prefab.unity3d";
-            var assetName = "Assets/_Project/Prefabs/Cube01.prefab";
-            ResManager.Instance.LoadObjectAsync<GameObject>(abName, assetName, delegate(GameObject reObj) {
-                var gameObject=Instantiate(reObj);
-                list.Add(gameObject, abName);
-            }); 
+            //加载场景
+            ResManager.Instance.LoadAssets("scene.unity3d");
+            SceneManager.LoadScene("Main");
+            ResManager.Instance.UnLoadAssetBundle("scene" + ResManager.ABPattern);
         }
+    }
 
-        //大资源异步加载
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ResManager.Instance.LoadObjectAsync<Texture2D>("Textures/shipsize.unity3d", "Assets/_Project/Textures/ShipSize.jpg", delegate (Texture2D reObj) {
-                var obj=new GameObject();
-                var img=obj.AddComponent<Image>();
-                img.sprite = Sprite.Create(reObj,new Rect(0,0, reObj.width, reObj.height),Vector2.zero);
-            });
-        }
+    public void CreateCube1()
+    {
+        var prefab1 = ResManager.Instance.LoadPrefab("prefabs", "Cube01");
+        var obj1 = GameObject.Instantiate(prefab1);
+        XLuaBehaviour.Attach(obj1, "CubeBehaviour");
+        list.Add(obj1, "prefabs");
+    }
 
-        //卸载Prefab
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+    public void CreateCube2()
+    {
+        ResManager.Instance.LoadPrefabAsync<GameObject>("prefabs", "Cube02", delegate (GameObject prefab2) {
+            var obj2 = GameObject.Instantiate(prefab2);
+            list.Add(obj2, "prefabs");
+        });
+    }
+
+    public void UnAsset1()
+    {
+        if (list.Count > 0)
         {
             foreach (var item in list)
             {
                 Destroy(item.Key);
-                ResManager.Instance.UnLoadAssetBundle(item.Value, true);
+                ResManager.Instance.UnLoadAssetBundle(item.Value + ResManager.ABPattern);
                 list.Remove(item.Key);
                 return;
             }
         }
+    }
 
-        //加载场景
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+    public void UnAsset2()
+    {
+        if (list.Count > 0)
         {
-            ResManager.Instance.LoadScene("Scenes/scene.unity3d", "Assets/_Project/Scenes/Home.unity");
+            foreach (var item in list)
+            {
+                Destroy(item.Key);
+                ResManager.Instance.UnLoadAssetBundle(item.Value + ResManager.ABPattern, true);
+                list.Remove(item.Key);
+                return;
+            }
         }
     }
 }

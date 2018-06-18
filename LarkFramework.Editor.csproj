@@ -115,6 +115,15 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets/CommonPack/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimator">
+      <HintPath>Assets/CommonPack/GUI Animator/GUI Animator for Unity UI/Plugins/GUIAnimator.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimatorEditor">
+      <HintPath>Assets/CommonPack/GUI Animator/GUI Animator for Unity UI/Plugins/Editor/GUIAnimatorEditor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="LarkFramework.csproj">
@@ -123,7 +132,72 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\XluaFramework\Module\Res\Editor\ResBuilder.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleBrowserMain.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleBuildTab.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleDataSource\ABDataSource.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleDataSource\ABDataSourceProvider.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleDataSource\AssetDatabaseABDataSource.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleManageTab.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleModel\ABModel.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleModel\ABModelAssetInfo.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleModel\ABModelBundleInfo.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetBundleTree.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\AssetListTree.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\BundleDetailList.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\MessageList.cs" />
+    <Compile Include="Assets\AssetBundleBrowser\UnityEngine.AssetBundles\Editor\AssetBundleBrowser\MessageSystem.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Editor\GAuiEditor.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\Hotfix.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.cs" />
+    <Compile Include="Assets\XLua\Src\Editor\TemplateRef.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\Editor\CompressAndDecompress.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\Res\Editor\ResBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\AssetsPackage\FileList.txt" />
+    <None Include="Assets\CommonPack\Fingers\ChangeLog.txt" />
+    <None Include="Assets\CommonPack\Fingers\Prefab\Script\XamarinAndroidTouchAdapter.txt" />
+    <None Include="Assets\CommonPack\Fingers\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\!How to.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Editor\Note.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Note.txt" />
+    <None Include="Assets\XLua\CHANGELOG.txt" />
+    <None Include="Assets\XLua\Gen\link.xml" />
+    <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
+    <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
+    <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
+    <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
+    <None Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegister.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegisterGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaWrapPusher.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
+    <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\_Project\Animations\Animations.txt" />
+    <None Include="Assets\_Project\Audios\Audios.txt" />
+    <None Include="Assets\_Project\Effects\Effects.txt" />
+    <None Include="Assets\_Project\Materials\Materials.txt" />
+    <None Include="Assets\_Project\Models\Models.txt" />
+    <None Include="Assets\_Project\Packages\Packages.txt" />
+    <None Include="Assets\_Project\Prefabs\Prefabs.txt" />
+    <None Include="Assets\_Project\Resources\Resources.txt" />
+    <None Include="Assets\_Project\SandBoxs\SandBoxs.txt" />
+    <None Include="Assets\_Project\Scenes\Scenes.txt" />
+    <None Include="Assets\_Project\Scripts\Scripts.txt" />
+    <None Include="Assets\_Project\Shaders\Shaders.txt" />
+    <None Include="Assets\_Project\Terrains\Terrains.txt" />
+    <None Include="Assets\_Project\Textures\Textures.txt" />
+    <None Include="Assets\_Project\_Documnets\_Documnets.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

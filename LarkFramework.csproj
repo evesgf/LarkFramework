@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.6f2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -75,20 +73,178 @@
     <Reference Include="UnityEngine.VR">
       <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
     </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets/CommonPack/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimator">
+      <HintPath>Assets/CommonPack/GUI Animator/GUI Animator for Unity UI/Plugins/GUIAnimator.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/566f2/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\XluaFramework\Common\Singleton\Singleton.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Singleton\SingletonAtom.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Singleton\SingletonComponent.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Singleton\SingletonMono.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Singleton\SingletonReflex.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Singleton\Test_SinInstance.cs" />
-    <Compile Include="Assets\XluaFramework\Common\Utility\PathUtil.cs" />
-    <Compile Include="Assets\XluaFramework\Module\Res\ResManager.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\AsteroidScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScript3DOrbit.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptDPad.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptImage.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptJoystick.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptOneFinger.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptPan.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptPlatformSpecificView.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptSwipe.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptZoomPanCamera.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Demo\DemoScriptZoomableScrollView.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersDPadScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersDragDropScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersImageAutomationScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersJoystickScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersOrbitScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersPanRotateScaleScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersRotateOrbitScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\FingersScript.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\DeviceInfo.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\GestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\ImageGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\LongPressGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\OneTouchRotateGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\OneTouchScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\PanGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\RotateGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\ScaleGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\SwipeGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\Fingers\Prefab\Script\Gestures\TapGestureRecognizer.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo00.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo01.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo02.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo03.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo04.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo05.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo06.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo07.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\Demo08.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\DemoPlaySound.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo (CSharp)\Scripts\OpenOtherScene.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo Basic (CSharp)\Scripts\GA_UUI_DemoBasicControlledByScripts.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Demo Basic (CSharp)\Scripts\GA_UUI_DemoBasicControlledByScriptsShowRotateLoop.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\GAui.cs" />
+    <Compile Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\GSui.cs" />
+    <Compile Include="Assets\XLua\Gen\CSCallLuaItfDBridge.cs" />
+    <Compile Include="Assets\XLua\Gen\DelegatesGensBridge.cs" />
+    <Compile Include="Assets\XLua\Gen\EnumWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\LuaHaplerWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\PackUnpack.cs" />
+    <Compile Include="Assets\XLua\Gen\TutorialBaseClassWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TutorialDrivenClassExtensionsWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TutorialDrivenClassWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\TutorialICalcWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\WrapPusher.cs" />
+    <Compile Include="Assets\XLua\Gen\XLuaBehaviourWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\XLuaGenAutoRegister.cs" />
+    <Compile Include="Assets\XLua\Src\CodeEmit.cs" />
+    <Compile Include="Assets\XLua\Src\CopyByValue.cs" />
+    <Compile Include="Assets\XLua\Src\DelegateBridge.cs" />
+    <Compile Include="Assets\XLua\Src\GenAttributes.cs" />
+    <Compile Include="Assets\XLua\Src\InternalGlobals.cs" />
+    <Compile Include="Assets\XLua\Src\LuaBase.cs" />
+    <Compile Include="Assets\XLua\Src\LuaDLL.cs" />
+    <Compile Include="Assets\XLua\Src\LuaEnv.cs" />
+    <Compile Include="Assets\XLua\Src\LuaException.cs" />
+    <Compile Include="Assets\XLua\Src\LuaFunction.cs" />
+    <Compile Include="Assets\XLua\Src\LuaTable.cs" />
+    <Compile Include="Assets\XLua\Src\MethodWarpsCache.cs" />
+    <Compile Include="Assets\XLua\Src\ObjectCasters.cs" />
+    <Compile Include="Assets\XLua\Src\ObjectPool.cs" />
+    <Compile Include="Assets\XLua\Src\ObjectTranslator.cs" />
+    <Compile Include="Assets\XLua\Src\ObjectTranslatorPool.cs" />
+    <Compile Include="Assets\XLua\Src\RawObject.cs" />
+    <Compile Include="Assets\XLua\Src\SignatureLoader.cs" />
+    <Compile Include="Assets\XLua\Src\StaticLuaCallbacks.cs" />
+    <Compile Include="Assets\XLua\Src\TemplateEngine\TemplateEngine.cs" />
+    <Compile Include="Assets\XLua\Src\TypeExtensions.cs" />
+    <Compile Include="Assets\XLua\Src\Utils.cs" />
+    <Compile Include="Assets\XLua\Tutorial\CSharpCallLua\CSCallLua.cs" />
+    <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
+    <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
+    <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
+    <Compile Include="Assets\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\Singleton.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\SingletonAtom.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\SingletonComponent.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\SingletonMono.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\SingletonReflex.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Singleton\Test_SinInstance.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Common\CRC.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Common\CommandLineParser.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Common\InBuffer.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Common\OutBuffer.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZ\LzBinTree.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZ\LzInWindow.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZ\LzOutWindow.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZMA\LzmaBase.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZMA\LzmaDecoder.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\LZMA\LzmaEncoder.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\RangeCoder\RangeCoder.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\Compress\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\7zip\ICoder.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\LuaHapler.cs" />
+    <Compile Include="Assets\XLuaFramework\Common\Utility\Util.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\AppConfig.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\Res\ResManager.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\UI\UIUtil.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\XLua\XLuaBehaviour.cs" />
+    <Compile Include="Assets\XLuaFramework\Module\XLua\XLuaManager.cs" />
     <Compile Include="Assets\_Project\Scripts\GameEntry.cs" />
+    <Compile Include="Assets\_Project\Scripts\ResCheckPage.cs" />
+    <Compile Include="Assets\_Project\Scripts\XLuaDef.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\AssetsPackage\FileList.txt" />
+    <None Include="Assets\CommonPack\Fingers\ChangeLog.txt" />
+    <None Include="Assets\CommonPack\Fingers\Prefab\Script\XamarinAndroidTouchAdapter.txt" />
+    <None Include="Assets\CommonPack\Fingers\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\!How to.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Readme.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Editor\Note.txt" />
+    <None Include="Assets\CommonPack\GUI Animator\GUI Animator for Unity UI\Scripts\Note.txt" />
+    <None Include="Assets\XLua\CHANGELOG.txt" />
+    <None Include="Assets\XLua\Gen\link.xml" />
+    <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
+    <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
+    <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
+    <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
+    <None Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaClassWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaDelegateWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrap.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaEnumWrapGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegister.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaRegisterGCM.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\LuaWrapPusher.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
+    <None Include="Assets\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
+    <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
+    <None Include="Assets\_Project\Animations\Animations.txt" />
+    <None Include="Assets\_Project\Audios\Audios.txt" />
+    <None Include="Assets\_Project\Effects\Effects.txt" />
+    <None Include="Assets\_Project\Materials\Materials.txt" />
+    <None Include="Assets\_Project\Models\Models.txt" />
+    <None Include="Assets\_Project\Packages\Packages.txt" />
+    <None Include="Assets\_Project\Prefabs\Prefabs.txt" />
+    <None Include="Assets\_Project\Resources\Resources.txt" />
+    <None Include="Assets\_Project\SandBoxs\SandBoxs.txt" />
+    <None Include="Assets\_Project\Scenes\Scenes.txt" />
+    <None Include="Assets\_Project\Scripts\Scripts.txt" />
+    <None Include="Assets\_Project\Shaders\Shaders.txt" />
+    <None Include="Assets\_Project\Terrains\Terrains.txt" />
+    <None Include="Assets\_Project\Textures\Textures.txt" />
+    <None Include="Assets\_Project\_Documnets\_Documnets.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
